@@ -1,2 +1,3 @@
 Flask==0.12
 gunicorn==19.6.0
+-e git+https://github.com/waprin/google-cloud-python.git@576cfd4a0286503deafe0c424c64c0a13dec91ae#egg=google-cloud-logging&subdirectory=logging

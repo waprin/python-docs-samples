@@ -17,8 +17,12 @@ import logging
 
 from flask import Flask
 
+from google.cloud import logging
 
 app = Flask(__name__)
+
+client = logging.Client()
+client.enable_shutdown_logging()
 
 
 @app.route('/')
@@ -39,5 +43,5 @@ def server_error(e):
 if __name__ == '__main__':
     # This is used when running locally. Gunicorn is used to run the
     # application on Google App Engine. See entrypoint in app.yaml.
-    app.run(host='127.0.0.1', port=8080, debug=True)
+    app.run(host='127.0.0.1', port=8081)
 # [END app]

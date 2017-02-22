@@ -15,10 +15,22 @@
 import webapp2
 
 
+import google
+print "hey %s" % google.__path__
+
+import sys
+
+google.__path__.insert(0, 'lib/google')
+
+
+from google.cloud import error_reporting
+
+
 class MainPage(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/plain'
         self.response.write('Hello, World!')
+        client = error_reporting.Client()
 
 
 app = webapp2.WSGIApplication([
